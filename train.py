@@ -66,16 +66,16 @@ args = {
 print(args)
 device = torch.device('cuda')
 
-print('===> Loading datasets')
+print('===Loading Datasets===')
 train_dataloader = make_dataloader(os.path.join(args['data_dir'], 'train'), args['batchsize'], args['patchsize'])
 val_dataloader = make_dataloader(os.path.join(args['data_dir'], 'val'), args['batchsize'], args['patchsize'], val=True)
 
-print('===> Building model')
+print('===Building Model===')
 model = ResNet50(args['patchsize'], args['nClass']).to(device)
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(model.parameters(), lr=args['lr'], momentum=0.9, weight_decay=args['wd'])
 
-print('======Networks initialized======')
+print('======Networks Initialized======')
 print(model)
 print('================================')
 
@@ -101,7 +101,7 @@ def train(epoch):
         optimizer.step()
         
     train_loss = train_loss / len(train_dataloader)
-    print('\n===>Epoch[',epoch,']:train_loss:',train_loss)
+    print('\nEpoch[',epoch,']:train_loss:',train_loss)
     train_acc = correct / len(train_dataloader.dataset)
     print('train_accuracy : {0:.4f}'.format(train_acc))
     return train_acc, train_loss
