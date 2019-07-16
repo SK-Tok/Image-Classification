@@ -55,13 +55,13 @@ def make_dataloader(dir_path, batchsize, patchsize, val = False):
     return dataloader
 
 args = {
-    'exp_name':'resnet50_1',
-    'data_dir':'./dataset',
-    'nClass':7,
-    'nEpochs':20,
-    'patchsize':30,
-    'lr':0.001,
-    'wd':0.005
+    'exp_name':'writing experiment name',
+    'data_dir':'wriitng dataset directory',
+    'nClass':'writing class number',
+    'nEpochs':'writing epoch number',
+    'patchsize':'writing patchsize',
+    'lr':'writing learning rate',
+    'wd':'writing weight decay'
 }
 print(args)
 device = torch.device('cuda')
